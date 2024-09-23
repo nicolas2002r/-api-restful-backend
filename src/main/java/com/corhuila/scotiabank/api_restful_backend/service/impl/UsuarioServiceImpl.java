@@ -24,6 +24,13 @@ public class UsuarioServiceImpl implements UsuarioService {
 
     private final ProgramaAcademicoRepository programaAcademicoRepository;
 
+    /**
+     * Metodo para crear usuario y asignar rol
+     * @param usuario
+     * @param nombreRol
+     * @param nombresProgramas
+     * @return
+     */
     @Override
     public final Usuario crearUsuario(Usuario usuario, String nombreRol, List<String> nombresProgramas) {
         // Buscar y asignar el rol
