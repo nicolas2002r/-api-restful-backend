@@ -3,7 +3,7 @@ spring:
     name: api-restful-backend
   datasource:
     url: jdbc:postgresql://localhost:5432/mycorhuila
-    username: corhuila
+    username: postgres
     password: admin
     driver-class-name: org.postgresql.Driver
 
