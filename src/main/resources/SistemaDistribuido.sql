@@ -60,6 +60,7 @@ JOIN programa_academico_usuario pau ON u.id = pau.usuario_id
 JOIN programa_academico pa ON pau.programa_academico_id = pa.id;
 
 select * from programa_academico;
+SELECT * FROM roles WHERE nombre = 'Decano';
 
 
 ----------------------------------------------------------------------------------------------------------------------
