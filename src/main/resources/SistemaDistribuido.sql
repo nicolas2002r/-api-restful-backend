@@ -99,7 +99,7 @@ FROM actividades a
 JOIN sub_actividades sa ON a.id = sa.actividad_id
 JOIN tareas t ON sa.id = t.sub_actividad_id;
 
-----------------------------------------------------------------------------------------------------------------------
+----------------------------------------------- Insersion a la tabla de actividades -----------------------------------------------
 INSERT INTO actividades (nombre, descripcion) VALUES
 ('Académicas', 'Actividades relacionadas con la docencia y enseñanza'),
 ('Formativas', 'Actividades orientadas a la formación continua'),
@@ -108,37 +108,53 @@ INSERT INTO actividades (nombre, descripcion) VALUES
 ('Culturales', 'Promoción y participación en actividades culturales'),
 ('Gestión Académica - Administrativa', 'Tareas de gestión académica y administrativa');
 
+----------------------------------------------- Insersion a la tabla de sub_actividades -----------------------------------------------
 -- Sub-actividades para la actividad "Académicas" (ID 1)
 INSERT INTO sub_actividades (actividad_id, nombre, descripcion) VALUES
 (1, 'Preparación de clases', 'Diseño y preparación de contenido educativo'),
-(1, 'Evaluaciones', 'Elaboración y corrección de evaluaciones');
+(1, 'Evaluación de aprendizajes a estudiantes', 'Elaboración y corrección de evaluaciones'),
+(1, 'Gestión de eventos académicos', 'Eventos académico de la institución');
 
 -- Sub-actividades para la actividad "Formativas" (ID 2)
 INSERT INTO sub_actividades (actividad_id, nombre, descripcion) VALUES
-(2, 'Cursos de formación', 'Participación en cursos de formación continua'),
-(2, 'Seminarios', 'Asistencia a seminarios formativos');
+(2, 'Acompañamiento académico a estudiantes', 'Guiar las actividades de los estudiantes'),
+(2, 'Cursos de fortalecimiento dirigido a estudiantes', 'Contribución a la formación integral de los estudiantes'),
+(2, 'Asesoría en emprendimiento', 'Brinda apoyo a emprendedores para mejorar su negocio');
 
 -- Sub-actividades para la actividad "Labores científicas" (ID 3)
 INSERT INTO sub_actividades (actividad_id, nombre, descripcion) VALUES
-(3, 'Investigación de campo', 'Realización de investigación en campo'),
-(3, 'Publicación científica', 'Escribir y publicar artículos científicos');
+(3, 'Gestión de semilleros de investigación ', 'Realización de investigación en un proceso de semillero'),
+(3, 'Elaboración de propuestas para convocatorias de CTeI', 'busca generar nuevo conocimiento, mejorar una situación, aprovechar una oportunidad, responder o solucionar una necesidad o un problema existente'),
+(3, 'Gestión de proyectos de investigación en CTeI', 'proceso que busca formular, proponer y ejecutar proyectos de CTeI aplicada'),
+(3, 'Dirección de grupos de investigación', 'generar políticas y estrategias para fomentar la investigación en la institución'),
+(3, 'Elaboración de artículos científicos y textos académicos', 'implica cumplir con normas específicas de estructura y contenido');
 
 -- Sub-actividades para la actividad "Extensiones" (ID 4)
 INSERT INTO sub_actividades (actividad_id, nombre, descripcion) VALUES
-(4, 'Charlas educativas', 'Charlas dirigidas a la comunidad'),
-(4, 'Actividades comunitarias', 'Proyectos en colaboración con la comunidad');
+(4, 'Gestión de proyectos de consultoría', 'Una consultoría es una empresa o una práctica empresarial que brinda asesoramiento experto a otras personas.'),
+(4, 'Acompañamiento al sector empresarial', 'proceso de análisis de la empresa que sirve para establecer nuevos retos, diseñar planes operativos y hacer una medición del impacto.'),
+(4, 'Participación en proyectos de intervención comunitaria', 'ciudadanos se organizan para identificar y buscar soluciones a sus necesidades e intereses, y para tomar decisiones sobre su comunidad');
 
 -- Sub-actividades para la actividad "Culturales" (ID 5)
 INSERT INTO sub_actividades (actividad_id, nombre, descripcion) VALUES
-(5, 'Organización de eventos', 'Organización y ejecución de eventos culturales'),
-(5, 'Participación en festivales', 'Participación en festivales culturales');
+(5, 'Gestión de proyectos culturales', 'se encarga de planificar, organizar y coordinar proyectos, eventos y actividades culturales.'),
+(5, 'Promoción de la educación artística', 'conjunto de actividades y estrategias que buscan difundir y valorar el arte y la cultura.');
 
 -- Sub-actividades para la actividad "Gestión Académica - Administrativa" (ID 6)
 INSERT INTO sub_actividades (actividad_id, nombre, descripcion) VALUES
-(6, 'Reuniones administrativas', 'Asistencia y participación en reuniones'),
-(6, 'Gestión de proyectos académicos', 'Gestión y seguimiento de proyectos académicos');
+(6, 'Participación como jurado y/o asesor académico en trabajos de grado', 'guía y orienta el proceso de investigación de manera personalizada.'),
+(6, 'Participación en procesos de registros calificados', 'demuestra ante el mismo que reúne las condiciones de calidad que la ley exige.'),
+(6, 'Participación en procesos de acreditación', 'son una fuente clave para la Comisión Nacional de Acreditación (CNA).'),
+(6, 'Participación en Consejos y Comités', 'representar los intereses colectivos de los y las habitantes de la colonia ante las diversas autoridades.'),
+(6, 'Participación en procesos de autoevaluación', 'participación en diferentes tipos de autoevaluación, como la de empleados, estudiantes, o en instituciones educativas'),
+(6, 'Participación en Investigaciones de mercado', 'proceso de recolección, análisis e interpretación de información sobre un mercado, para ayudar a las empresas a tomar decisiones informadas y mejorar su rendimiento.'),
+(6, 'Participación en procesos de formación de profesores', 'capacitación docente, que es un proceso que permite a los docentes actualizar y perfeccionar sus conocimientos y habilidades.'),
+(6, 'Programación y gestión de prácticas extramuros', 'actividades académicas que se realizan fuera del salón de clase, con el objetivo de ofrecer a los estudiantes experiencias que les permitan ampliar sus conocimientos y desarrollar su pensamiento.'),
+(6, 'Elaboración de exámenes para validaciones', 'proceso que se encarga de verificar la precisión de los resultados, interpretaciones y uso previsto de una prueba.'),
+(6, 'Líder de CTeI, extensión y proyección social', 'promueve la interacción con los diferentes sectores de la sociedad.'),
+(6, 'Líder de resultados de aprendizaje', 'liderazgo que se centra en la responsabilidad individual y grupal para alcanzar metas y objetivos.');
 
-
+----------------------------------------------- Insersion a la tabla de tareas -----------------------------------------------
 -- Tareas para la sub-actividad "Preparación de clases" (ID 1)
 INSERT INTO tareas (sub_actividad_id, nombre, descripcion) VALUES
 (1, 'Diseñar el programa del curso', 'Creación del programa de estudio'),
