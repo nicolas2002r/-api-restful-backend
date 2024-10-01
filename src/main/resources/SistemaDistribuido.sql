@@ -100,7 +100,7 @@ JOIN sub_actividades sa ON a.id = sa.actividad_id
 JOIN tareas t ON sa.id = t.sub_actividad_id;
 
 ----------------------------------------------------------------------------------------------------------------------
-INSERT INTO actividades (nombre, descripcion) VALUES 
+INSERT INTO actividades (nombre, descripcion) VALUES
 ('Académicas', 'Actividades relacionadas con la docencia y enseñanza'),
 ('Formativas', 'Actividades orientadas a la formación continua'),
 ('Labores científicas', 'Investigación y producción científica'),
@@ -109,68 +109,68 @@ INSERT INTO actividades (nombre, descripcion) VALUES
 ('Gestión Académica - Administrativa', 'Tareas de gestión académica y administrativa');
 
 -- Sub-actividades para la actividad "Académicas" (ID 1)
-INSERT INTO sub_actividades (actividad_id, nombre, descripcion) VALUES 
+INSERT INTO sub_actividades (actividad_id, nombre, descripcion) VALUES
 (1, 'Preparación de clases', 'Diseño y preparación de contenido educativo'),
 (1, 'Evaluaciones', 'Elaboración y corrección de evaluaciones');
 
 -- Sub-actividades para la actividad "Formativas" (ID 2)
-INSERT INTO sub_actividades (actividad_id, nombre, descripcion) VALUES 
+INSERT INTO sub_actividades (actividad_id, nombre, descripcion) VALUES
 (2, 'Cursos de formación', 'Participación en cursos de formación continua'),
 (2, 'Seminarios', 'Asistencia a seminarios formativos');
 
 -- Sub-actividades para la actividad "Labores científicas" (ID 3)
-INSERT INTO sub_actividades (actividad_id, nombre, descripcion) VALUES 
+INSERT INTO sub_actividades (actividad_id, nombre, descripcion) VALUES
 (3, 'Investigación de campo', 'Realización de investigación en campo'),
 (3, 'Publicación científica', 'Escribir y publicar artículos científicos');
 
 -- Sub-actividades para la actividad "Extensiones" (ID 4)
-INSERT INTO sub_actividades (actividad_id, nombre, descripcion) VALUES 
+INSERT INTO sub_actividades (actividad_id, nombre, descripcion) VALUES
 (4, 'Charlas educativas', 'Charlas dirigidas a la comunidad'),
 (4, 'Actividades comunitarias', 'Proyectos en colaboración con la comunidad');
 
 -- Sub-actividades para la actividad "Culturales" (ID 5)
-INSERT INTO sub_actividades (actividad_id, nombre, descripcion) VALUES 
+INSERT INTO sub_actividades (actividad_id, nombre, descripcion) VALUES
 (5, 'Organización de eventos', 'Organización y ejecución de eventos culturales'),
 (5, 'Participación en festivales', 'Participación en festivales culturales');
 
 -- Sub-actividades para la actividad "Gestión Académica - Administrativa" (ID 6)
-INSERT INTO sub_actividades (actividad_id, nombre, descripcion) VALUES 
+INSERT INTO sub_actividades (actividad_id, nombre, descripcion) VALUES
 (6, 'Reuniones administrativas', 'Asistencia y participación en reuniones'),
 (6, 'Gestión de proyectos académicos', 'Gestión y seguimiento de proyectos académicos');
 
 
 -- Tareas para la sub-actividad "Preparación de clases" (ID 1)
-INSERT INTO tareas (sub_actividad_id, nombre, descripcion) VALUES 
+INSERT INTO tareas (sub_actividad_id, nombre, descripcion) VALUES
 (1, 'Diseñar el programa del curso', 'Creación del programa de estudio'),
 (1, 'Actualizar materiales de clase', 'Revisión y actualización de los materiales de clase');
 
 -- Tareas para la sub-actividad "Evaluaciones" (ID 2)
-INSERT INTO tareas (sub_actividad_id, nombre, descripcion) VALUES 
+INSERT INTO tareas (sub_actividad_id, nombre, descripcion) VALUES
 (2, 'Diseñar exámenes', 'Creación de exámenes para los estudiantes'),
 (2, 'Corregir exámenes', 'Corrección y retroalimentación de exámenes');
 
 -- Tareas para la sub-actividad "Cursos de formación" (ID 3)
-INSERT INTO tareas (sub_actividad_id, nombre, descripcion) VALUES 
+INSERT INTO tareas (sub_actividad_id, nombre, descripcion) VALUES
 (3, 'Inscribirse en curso', 'Proceso de inscripción en cursos de formación'),
 (3, 'Completar curso', 'Participar y completar un curso formativo');
 
 -- Tareas para la sub-actividad "Investigación de campo" (ID 5)
-INSERT INTO tareas (sub_actividad_id, nombre, descripcion) VALUES 
+INSERT INTO tareas (sub_actividad_id, nombre, descripcion) VALUES
 (5, 'Recolección de datos', 'Realización de actividades de campo para recolectar datos'),
 (5, 'Análisis de datos', 'Análisis e interpretación de los datos recolectados');
 
 -- Tareas para la sub-actividad "Charlas educativas" (ID 7)
-INSERT INTO tareas (sub_actividad_id, nombre, descripcion) VALUES 
+INSERT INTO tareas (sub_actividad_id, nombre, descripcion) VALUES
 (7, 'Preparar presentación', 'Preparar una presentación para la charla'),
 (7, 'Impartir charla', 'Realización de la charla educativa');
 
 -- Tareas para la sub-actividad "Organización de eventos" (ID 9)
-INSERT INTO tareas (sub_actividad_id, nombre, descripcion) VALUES 
+INSERT INTO tareas (sub_actividad_id, nombre, descripcion) VALUES
 (9, 'Coordinar logística', 'Planificación y coordinación de la logística del evento'),
 (9, 'Invitar a los participantes', 'Organización de las invitaciones para los participantes');
 
 -- Tareas para la sub-actividad "Reuniones administrativas" (ID 11)
-INSERT INTO tareas (sub_actividad_id, nombre, descripcion) VALUES 
+INSERT INTO tareas (sub_actividad_id, nombre, descripcion) VALUES
 (11, 'Organizar agenda', 'Preparación de la agenda para la reunión'),
 (11, 'Redactar acta', 'Redacción del acta de la reunión');
 
@@ -178,3 +178,69 @@ SELECT a.nombre AS actividad, sa.nombre AS sub_actividad, t.nombre AS tarea
 FROM actividades a
 JOIN sub_actividades sa ON a.id = sa.actividad_id
 JOIN tareas t ON sa.id = t.sub_actividad_id;
+
+----------------------------------------------------------------------------------------------------------------------
+
+-- Crear tabla de asociación entre roles y actividades
+CREATE TABLE roles_actividades (
+id SERIAL PRIMARY KEY,
+rol_id INT REFERENCES roles(id) ON DELETE CASCADE,
+actividad_id INT REFERENCES actividades(id) ON DELETE CASCADE,
+UNIQUE (rol_id, actividad_id)
+);
+
+-- Crear tabla de asociación entre roles y sub_actividades
+CREATE TABLE roles_sub_actividades (
+id SERIAL PRIMARY KEY,
+rol_id INT REFERENCES roles(id) ON DELETE CASCADE,
+sub_actividad_id INT REFERENCES sub_actividades(id) ON DELETE CASCADE,
+UNIQUE (rol_id, sub_actividad_id)
+);
+
+-- Crear tabla de asociación entre roles y tareas
+CREATE TABLE roles_tareas (
+id SERIAL PRIMARY KEY,
+rol_id INT REFERENCES roles(id) ON DELETE CASCADE,
+tarea_id INT REFERENCES tareas(id) ON DELETE CASCADE,
+UNIQUE (rol_id, tarea_id)
+);
+
+-- Obtener el ID del rol Docente
+SELECT id FROM roles WHERE nombre = 'Docente';
+
+-- Supongamos que el ID del rol Docente es 1, se utilizará ese ID para las siguientes inserciones.
+
+-- Asociar el rol Docente con actividades
+INSERT INTO roles_actividades (rol_id, actividad_id) VALUES
+(1, 1), -- Docente asociado a la actividad "Académicas"
+(1, 2); -- Docente asociado a la actividad "Formativas"
+
+-- Asociar el rol Docente con sub-actividades de la actividad "Académicas"
+INSERT INTO roles_sub_actividades (rol_id, sub_actividad_id) VALUES
+(1, 1), -- Docente asociado a la sub-actividad "Preparación de clases"
+(1, 2); -- Docente asociado a la sub-actividad "Evaluaciones"
+
+-- Asociar el rol Docente con tareas de la sub-actividad "Preparación de clases"
+INSERT INTO roles_tareas (rol_id, tarea_id) VALUES
+(1, 1), -- Docente asociado a la tarea "Diseñar el programa del curso"
+(1, 2); -- Docente asociado a la tarea "Actualizar materiales de clase"
+
+SELECT r.nombre AS rol, a.nombre AS actividad
+FROM roles r
+JOIN roles_actividades ra ON r.id = ra.rol_id
+JOIN actividades a ON ra.actividad_id = a.id
+WHERE r.nombre = 'Docente';
+
+SELECT r.nombre AS rol, sa.nombre AS sub_actividad
+FROM roles r
+JOIN roles_sub_actividades rsa ON r.id = rsa.rol_id
+JOIN sub_actividades sa ON rsa.sub_actividad_id = sa.id
+WHERE r.nombre = 'Docente';
+
+SELECT r.nombre AS rol, t.nombre AS tarea
+FROM roles r
+JOIN roles_tareas rt ON r.id = rt.rol_id
+JOIN tareas t ON rt.tarea_id = t.id
+WHERE r.nombre = 'Docente';
+
+SELECT * FROM roles;
