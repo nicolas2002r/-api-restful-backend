@@ -156,39 +156,168 @@ INSERT INTO sub_actividades (actividad_id, nombre, descripcion) VALUES
 
 ----------------------------------------------- Insersion a la tabla de tareas -----------------------------------------------
 -- Tareas para la sub-actividad "Preparación de clases" (ID 1)
-INSERT INTO tareas (sub_actividad_id, nombre, descripcion) VALUES
-(1, 'Diseñar el programa del curso', 'Creación del programa de estudio'),
-(1, 'Actualizar materiales de clase', 'Revisión y actualización de los materiales de clase');
+INSERT INTO tareas (sub_actividad_id, nombre) VALUES
+(1, 'SYLLABUS DE LA ASIGNATURA.'),
+(1, 'MATERIAL EDUCATIVO SUBIDO EN LA PLATAFORMA MOODLE, EN EL CURSO DE CADA ASIGNATURA O MÓDULO'),
+(1, 'MATERIALES EDUCATIVOS UTILIZADOS EN CADA ENCUENTRO SINCRÓNICO REALIZADO'),
+(1, 'RECURSOS (VIDEOS, LINKS, INFOGRAFÍAS, DIAPOSITIVAS, DOCUMENTOS BIBLIOGRÁFICOS U OTROS RECURSOS EDUCATIVOS), REQUERIDOS PARA EL DESARROLLO DE LAS ACTIVIDADES SINCRÓNICAS Y/O ASINCRÓNICAS, CONFORME A LA PLANEACIÓN REALIZADA POR EL PROFESOR.'),
+(1, 'ACTIVIDADES (CUESTIONARIOS, EJERCICIOS, TALLERES, TAREAS, FOROS U OTRAS), COMO CORRESPONDA A CADA CLASE DE ACUERDO CON EL DISEÑO DEFINIDO PARA EL APRENDIZAJE AUTÓNOMO O COLABORATIVO, LAS CUALES DEBEN SER TENIDAS EN CUENTA EN LA EVALUACIÓN FORMATIVA Y DEL APRENDIZAJE.');
 
 -- Tareas para la sub-actividad "Evaluaciones" (ID 2)
-INSERT INTO tareas (sub_actividad_id, nombre, descripcion) VALUES
-(2, 'Diseñar exámenes', 'Creación de exámenes para los estudiantes'),
-(2, 'Corregir exámenes', 'Corrección y retroalimentación de exámenes');
+INSERT INTO tareas (sub_actividad_id, nombre) VALUES
+(2, 'PLANILLA DE CALIFICACIONES (CORHUILAPLUS+)'),
+(2, 'EVIDENCIAS DE AUTOEVALUACIÓN 30%, 30% Y 40%'),
+(2, 'EVIDENCIAS DE COEVALUACIÓN 30%, 30% Y 40%'),
+(2, 'EVIDENCIAS DE HETEROEVALUACIÓN  30%, 30% Y 40%');
 
 -- Tareas para la sub-actividad "Cursos de formación" (ID 3)
-INSERT INTO tareas (sub_actividad_id, nombre, descripcion) VALUES
-(3, 'Inscribirse en curso', 'Proceso de inscripción en cursos de formación'),
-(3, 'Completar curso', 'Participar y completar un curso formativo');
+INSERT INTO tareas (sub_actividad_id, nombre) VALUES
+(3, ' FO-GD-83 PLANEACIÓN ACTIVIDADES ACADÉMICAS'),
+(3, 'FO-GD-84 AGENDA PARA ACTIVIDADES ACADÉMICAS'),
+(3, 'FO-GD-85 PRESUPUESTO PARA ACTIVIDADES ACADÉMICAS'),
+(3, 'INFORME EJECUTIVO DEL DESARROLLO DE LA ACTIVIDAD'),
+(3, 'LISTADO DE ASISTENCIA'),
+(3, 'REGISTRO FOTOGRÁFICO'),
+(3, 'MATERIAL DE APOYO'),
+(3, 'EVALUACIÓN DEL EVENTO');
 
 -- Tareas para la sub-actividad "Investigación de campo" (ID 5)
-INSERT INTO tareas (sub_actividad_id, nombre, descripcion) VALUES
-(5, 'Recolección de datos', 'Realización de actividades de campo para recolectar datos'),
-(5, 'Análisis de datos', 'Análisis e interpretación de los datos recolectados');
+INSERT INTO tareas (sub_actividad_id, nombre) VALUES
+(4, 'TRES REPORTES SOBRE EL DESARROLLO, AVANCES Y RESULTADOS DEL ACOMPAÑAMIENTO REALIZADO A ESTUDIANTES, ENTREGADOS EN LAS FECHAS ESTABLECIDAS POR EL COMITÉ DE CURRÍCULO Y ASEGURAMIENTO DE LA CALIDAD'),
+(4, 'SOPORTE DE LAS REMISIONES DE ESTUDIANTES');
 
 -- Tareas para la sub-actividad "Charlas educativas" (ID 7)
-INSERT INTO tareas (sub_actividad_id, nombre, descripcion) VALUES
-(7, 'Preparar presentación', 'Preparar una presentación para la charla'),
-(7, 'Impartir charla', 'Realización de la charla educativa');
+INSERT INTO tareas (sub_actividad_id, nombre) VALUES
+(5, 'INFORME EJECUTIVO DEL DESARROLLO DE LA ACTIVIDAD'),
+(5, 'LISTADO DE ASISTENCIA'),
+(5, 'RECURSOS EDUCATIVOS'),
+(5, 'EVALUACIÓN DEL CURSO');
 
 -- Tareas para la sub-actividad "Organización de eventos" (ID 9)
-INSERT INTO tareas (sub_actividad_id, nombre, descripcion) VALUES
-(9, 'Coordinar logística', 'Planificación y coordinación de la logística del evento'),
-(9, 'Invitar a los participantes', 'Organización de las invitaciones para los participantes');
+INSERT INTO tareas (sub_actividad_id, nombre) VALUES
+(6, 'INFORME EJECUTIVO DEL DESARROLLO DE LA ACTIVIDAD'),
+(6, 'MATERIAL DE APOYO'),
+(6, 'EVALUACIÓN DE LA ASESORÍA');
 
 -- Tareas para la sub-actividad "Reuniones administrativas" (ID 11)
-INSERT INTO tareas (sub_actividad_id, nombre, descripcion) VALUES
-(11, 'Organizar agenda', 'Preparación de la agenda para la reunión'),
-(11, 'Redactar acta', 'Redacción del acta de la reunión');
+INSERT INTO tareas (sub_actividad_id, nombre) VALUES
+(7, 'INFORME DE GESTIÓN REALIZADA DURANTE EL PERIODO ACADÉMICO'),
+(7, 'AGENDAS Y/O ACTAS'),
+(7, 'LISTADOS DE ASISTENCIA'),
+(7, 'MATERIAL EDUCATIVO UTILIZADO'),
+(7, 'REGISTRO FOTOGRÁFICO Y/O VIDEO');
+
+INSERT INTO tareas (sub_actividad_id, nombre) VALUES
+(8, 'PROPUESTA PARA CONVOCATORIA INTERNA');
+
+INSERT INTO tareas (sub_actividad_id, nombre) VALUES
+(9, 'PROYECTOS EN EJECUCIÓN : INFORMES PARCIALES'),
+(9, 'PROYECTOS FINALIZADOS: INFORME FINAL TÉCNICO Y FINANCIERO'),
+(9, 'CONSULTORÍA REALIZADA: INFORME FINAL'),
+(9, 'REGISTRO DE SOFTWARE REALIZADO'),
+(9, 'REGISTRO DE PATENTE: AVANCE EN PROCESO O CONVALIDADA'),
+(9, 'PRODUCTO TECNOLÓGICO: CERTIFICADO O VALIDADO'),
+(9, 'CONCEPTOS TÉCNICOS O INFORMES TÉCNICOS: CONVALIDADOS');
+
+INSERT INTO tareas (sub_actividad_id, nombre) VALUES
+(10, 'INFORME DE GESTIÓN REALIZADA DURANTE EL PERIODO ACADÉMICO'),
+(10, 'AGENDAS Y/O ACTAS'),
+(10, 'LISTADOS DE ASISTENCIA'),
+(10, 'MATERIAL EDUCATIVO UTILIZADO'),
+(10, 'REGISTRO FOTOGRÁFICO Y/O VIDEO');
+
+INSERT INTO tareas (sub_actividad_id, nombre) VALUES
+(11, 'ARTÍCULO(S) DE INVESTIGACIÓN SOMETIDO(S)'),
+(11, 'ARTÍCULO(S) PUBLICADO(S)'),
+(11, 'LIBRO RESULTADO DE INVESTIGACIÓN PUBLICADO PROPUESTA DE LIBRO RESULTADO DE INVESTIGACIÓN ELABORADA PARA SU PUBLICACIÓN'),
+(11, 'CAPÍTULOS DE LIBRO RESULTADO DE INVESTIGACIÓN PUBLICADO'),
+(11, ' PROPUESTA DE CAPÍTULO RESULTADO DE INVESTIGACIÓN EN ✓REVISIÓN POR PARES PUBLICACIÓN DE LIBRO Y/O CAPÍTULO DE LIBRO DE APSC PUBLICADO');
+
+INSERT INTO tareas (sub_actividad_id, nombre) VALUES
+(12, 'PROYECTOS EN EJECUCIÓN : INFORMES PARCIALES'),
+(12, 'PROYECTOS FINALIZADOS: INFORME FINAL'),
+(12, 'AGENDAS Y/O ACTAS'),
+(12, 'LISTADOS DE ASISTENCIA'),
+(12, 'REGISTRO FOTOGRÁFICO Y/O VIDEO'),
+(12, 'MATERIAL EDUCATIVO UTILIZADO');
+
+INSERT INTO tareas (sub_actividad_id, nombre) VALUES
+(13, 'INFORME DE GESTIÓN DEL ACOMPAÑAMIENTO REALIZADO AL SECTOR EMPRESARIAL DURANTE EL PERIODO ACADÉMICO'),
+(13, 'ACTAS DE REUNIÓN'),
+(13, 'LISTADOS DE ASISTENCIA'),
+(13, 'REGISTRO FOTOGRÁFICO Y/O VIDEO'),
+(13, 'MATERIAL EDUCATIVO UTILIZADO');
+
+INSERT INTO tareas (sub_actividad_id, nombre) VALUES
+(14, 'PROYECTOS EN EJECUCIÓN : INFORMES PARCIALES'),
+(14, 'PROYECTOS FINALIZADOS: INFORME FINAL'),
+(14, 'AGENDAS Y/O ACTAS'),
+(14, 'LISTADOS DE ASISTENCIA'),
+(14, 'REGISTRO FOTOGRÁFICO Y/O VIDEO'),
+(14, 'MATERIAL EDUCATIVO UTILIZADO');
+
+INSERT INTO tareas (sub_actividad_id, nombre) VALUES
+(15, 'INFORME DE GESTIÓN REALIZADA DURANTE EL PERIODO ACADÉMICO'),
+(15, 'AGENDAS Y/O ACTAS'),
+(15, 'LISTADOS DE ASISTENCIA'),
+(15, 'REGISTRO FOTOGRÁFICO Y/O VIDEO'),
+(15, 'MATERIAL EDUCATIVO UTILIZADO');
+
+INSERT INTO tareas (sub_actividad_id, nombre) VALUES
+(16, 'INFORME DE GESTIÓN REALIZADA DURANTE EL PERIODO ACADÉMICO'),
+(16, 'AGENDAS Y/O ACTAS'),
+(16, 'LISTADOS DE ASISTENCIA'),
+(16, 'REGISTRO FOTOGRÁFICO Y/O VIDEO'),
+(16, 'MATERIAL EDUCATIVO UTILIZADO');
+
+INSERT INTO tareas (sub_actividad_id, nombre) VALUES
+(17, 'OFICIO DE RETROALIMENTACIÓN DE OPCIONES DE GRADO PARA PREGRADO Y POSGRADO - F0-GD-51 (POR TRABAJO DE GRADO ASIGNADO)');
+
+INSERT INTO tareas (sub_actividad_id, nombre) VALUES
+(18, 'DOCUMENTOS ASIGNADOS PARA EL REGISTRO CALIFICADO');
+
+INSERT INTO tareas (sub_actividad_id, nombre) VALUES
+(19, 'DOCUMENTOS ASIGNADOS PARA LA ACREDITACIÓN DEL PROGRAMA ACADÉMICO');
+
+INSERT INTO tareas (sub_actividad_id, nombre) VALUES
+(20, 'REPORTE DE LA ASISTENCIA A CONSEJOS Y COMITES SEGÚN CORRESPONDA');
+
+INSERT INTO tareas (sub_actividad_id, nombre) VALUES
+(21, 'DOCUMENTOS ASIGNADOS EN EL PROCESO DE AUTOEVALUACIÓN');
+
+INSERT INTO tareas (sub_actividad_id, nombre) VALUES
+(22, 'DOCUMENTO ESTUDIO DE MERCADO');
+
+INSERT INTO tareas (sub_actividad_id, nombre) VALUES
+(23, 'REPORTE DE LA ASISTENCIA A LOS PROCESOS DE FORMACIÓN EN LOS QUE HA SIDO CONVOCADO');
+
+INSERT INTO tareas (sub_actividad_id, nombre) VALUES
+(24, 'FORMATO PLANEACIÓN DE PRÁCTICA EXTRAMURO - FO-GD-25'),
+(24, 'INFORME DE LA PRACTICA EXTRAMURO - FO-GD-24'),
+(24, 'LISTADOS DE ASISTENCIA'),
+(24, 'REGISTRO FOTOGRÁFICO Y/O VIDEO');
+
+INSERT INTO tareas (sub_actividad_id, nombre) VALUES
+(25, 'ACTA DE VALIDACIÓN - FO-GD-46');
+
+INSERT INTO tareas (sub_actividad_id, nombre) VALUES
+(26, 'INFORME DE GESTIÓN REALIZADA DURANTE EL PERIODO ACADÉMICO'),
+(26, 'AGENDAS Y/O ACTAS'),
+(26, 'LISTADOS DE ASISTENCIA'),
+(26, 'REGISTRO FOTOGRÁFICO Y/O VIDEO'),
+(26, 'MATERIAL EDUCATIVO UTILIZADO'),
+(26, 'RECOPILACIÓN DE LOS PRODUCTOS DE PROYECTOS DE CTEI, EXTENSIÓN Y PROYECCIÓN SOCIAL DEL PROGRAMA ACADÉMICO');
+
+INSERT INTO tareas (sub_actividad_id, nombre) VALUES
+(27, 'INFORME DE GESTIÓN REALIZADA DURANTE EL PERIODO ACADÉMICO'),
+(27, 'AGENDAS Y/O ACTAS'),
+(27, 'LISTADOS DE ASISTENCIA'),
+(27, 'REGISTRO FOTOGRÁFICO Y/O VIDEO'),
+(27, 'MATERIAL EDUCATIVO UTILIZADO'),
+(27, 'MATRIZ DE RESULTADOS DE APRENDIZAJE DEL PROGRAMA - RAP '),
+(27, 'INFORME DE LA EVALUACIÓN DE LOS RESULTADOS DE APRENDIZAJE DEL PROGRAMA - RAP'),
+(27, 'INSTRUMENTOS  PARA LA EVALUACIÓN DE LOS RESULTADOS DE APRENDIZAJE DEL PROGRAMA - RAP');
+
 
 SELECT a.nombre AS actividad, sa.nombre AS sub_actividad, t.nombre AS tarea
 FROM actividades a
