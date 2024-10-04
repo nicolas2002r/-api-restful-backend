@@ -81,7 +81,7 @@ CREATE TABLE sub_actividades (
 CREATE TABLE tareas (
     id SERIAL PRIMARY KEY,
     sub_actividad_id INT REFERENCES sub_actividades(id) ON DELETE CASCADE,
-    nombre VARCHAR(255) NOT NULL,
+    nombre VARCHAR(500) NOT NULL,
     descripcion TEXT,
     asignable BOOLEAN DEFAULT TRUE
 );
