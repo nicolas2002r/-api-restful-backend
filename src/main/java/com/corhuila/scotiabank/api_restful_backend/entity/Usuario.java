@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -21,16 +22,16 @@ public class Usuario {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name="nombre", nullable = false)
+    @Column(nullable = false)
     private String nombre;
 
-    @Column(name="apellido", nullable = false)
+    @Column(nullable = false)
     private String apellido;
 
-    @Column(name="dni", nullable = false, unique = true)
+    @Column(nullable = false, unique = true)
     private String dni;
 
-    @Column(name="correo", nullable = false, unique = true)
+    @Column(nullable = false, unique = true)
     private String correo;
 
     @ManyToOne
@@ -44,4 +45,7 @@ public class Usuario {
             inverseJoinColumns = @JoinColumn(name = "programa_academico_id")
     )
     private Set<ProgramaAcademico> programasAcademicos = new HashSet<>();
+
+    @OneToMany(mappedBy = "usuario")
+    private List<Actividad> actividades;
 }

@@ -19,16 +19,16 @@ public class SubActividad {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToOne
-    @JoinColumn(name = "actividad_id", nullable = false)
-    private Actividad actividad;
-
     @Column(nullable = false)
     private String nombre;
 
     @Column
     private String descripcion;
 
-    @OneToMany(mappedBy = "subActividad", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @ManyToOne
+    @JoinColumn(name = "actividad_id", nullable = false)
+    private Actividad actividad;
+
+    @OneToMany(mappedBy = "subActividad")
     private List<Tarea> tareas;
 }

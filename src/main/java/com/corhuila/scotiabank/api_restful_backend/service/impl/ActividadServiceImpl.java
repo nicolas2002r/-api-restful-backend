@@ -18,4 +18,7 @@ public class ActividadServiceImpl implements ActividadService {
     public List<Actividad> obtenerTodasLasActividades() {
         return actividadRepository.findAll();
     }
+    public List<Actividad> obtenerActividadesPorUsuario(Long usuarioId) {
+        return actividadRepository.findByUsuarioId(usuarioId);
+    }
 }

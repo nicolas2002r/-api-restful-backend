@@ -6,4 +6,5 @@ import java.util.List;
 
 public interface ActividadService {
     List<Actividad> obtenerTodasLasActividades();
+    List<Actividad> obtenerActividadesPorUsuario(Long usuarioId);
 }

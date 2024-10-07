@@ -17,15 +17,15 @@ public class Tarea {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToOne
-    @JoinColumn(name = "sub_actividad_id", nullable = false)
-    private SubActividad subActividad;
-
     @Column(nullable = false)
     private String nombre;
 
     @Column
     private String descripcion;
+
+    @ManyToOne
+    @JoinColumn(name = "sub_actividad_id", nullable = false)
+    private SubActividad subActividad;
 
     @Column
     private Boolean asignable = true;

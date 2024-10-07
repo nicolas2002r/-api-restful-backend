@@ -6,6 +6,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 @Entity
@@ -22,9 +23,22 @@ public class Actividad {
     @Column(nullable = false)
     private String nombre;
 
+    @Column(nullable = false)
+    private String tipoActividad;
+
     @Column
     private String descripcion;
 
-    @OneToMany(mappedBy = "actividad", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @Column(nullable = false)
+    private BigDecimal dedicacionSemanal;
+
+    @Column(nullable = false)
+    private BigDecimal dedicacionSemestral;
+
+    @ManyToOne
+    @JoinColumn(name = "usuario_id", nullable = false)
+    private Usuario usuario;
+
+    @OneToMany(mappedBy = "actividad")
     private List<SubActividad> subActividades;
 }

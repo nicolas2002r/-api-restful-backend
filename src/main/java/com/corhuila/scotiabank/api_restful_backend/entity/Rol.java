@@ -6,6 +6,8 @@ import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 
+import java.util.List;
+
 @Entity
 @Getter
 @Setter
@@ -17,7 +19,13 @@ public class Rol {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name="nombre", nullable = false)
+    @Column(nullable = false)
     private String nombre;
 
+    @OneToMany(mappedBy = "rol")
+    private List<Usuario> usuarios;
+
+    @OneToMany(mappedBy = "rol")
+    private List<Asociaciones> asociaciones;
 }
+
