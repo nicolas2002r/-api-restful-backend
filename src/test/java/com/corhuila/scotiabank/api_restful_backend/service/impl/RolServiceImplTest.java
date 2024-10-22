@@ -1,53 +1,46 @@
 package com.corhuila.scotiabank.api_restful_backend.service.impl;
 
-import com.corhuila.scotiabank.api_restful_backend.entity.Rol;
-import com.corhuila.scotiabank.api_restful_backend.repository.RolRepository;
-import com.corhuila.scotiabank.api_restful_backend.service.RolService;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
-import org.mockito.InjectMocks;
-import org.mockito.Mock;
-import org.mockito.MockitoAnnotations;
-import org.springframework.boot.test.context.SpringBootTest;
-
-import java.util.Arrays;
-import java.util.List;
-
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertSame;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
+import com.corhuila.scotiabank.api_restful_backend.entity.Rol;
+import com.corhuila.scotiabank.api_restful_backend.repository.RolRepository;
 
-@SpringBootTest
+import java.util.ArrayList;
+import java.util.List;
+
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.aot.DisabledInAotMode;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
+
+@ContextConfiguration(classes = {RolServiceImpl.class})
+@ExtendWith(SpringExtension.class)
+@DisabledInAotMode
 class RolServiceImplTest {
-    // Simulamos el repositorio
-    @Mock
+    @MockBean
     private RolRepository rolRepository;
 
-    // Inyectamos el servicio que vamos a probar
-    @InjectMocks
-    private RolService rolService;
+    @Autowired
+    private RolServiceImpl rolServiceImpl;
 
-    @BeforeEach
-    void setUp() {
-        MockitoAnnotations.openMocks(this);
-    }
-
+    /**
+     * Method under test: {@link RolServiceImpl#obtenerTodosLosRoles()}
+     */
     @Test
     void testObtenerTodosLosRoles() {
-        // Datos simulados para el repositorio
-        Rol rol1 = new Rol(1L, "ADMIN");
-        Rol rol2 = new Rol(2L, "USER");
-        List<Rol> mockRoles = Arrays.asList(rol1, rol2);
+        ArrayList<Rol> rolList = new ArrayList<>();
+        when(rolRepository.findAll()).thenReturn(rolList);
 
-        // Configuramos el mock del repositorio para que devuelva los roles simulados
-        when(rolRepository.findAll()).thenReturn(mockRoles);
+        List<Rol> actualObtenerTodosLosRolesResult = rolServiceImpl.obtenerTodosLosRoles();
 
-        // Ejecutamos el método de prueba
-        List<Rol> roles = rolService.obtenerTodosLosRoles();
-
-        // Verificamos que el resultado es el esperado
-        assertEquals(2, roles.size());
-        assertEquals("ADMIN", roles.get(0).getNombre());
-        assertEquals("USER", roles.get(1).getNombre());
+        verify(rolRepository).findAll();
+        assertTrue(actualObtenerTodosLosRolesResult.isEmpty());
+        assertSame(rolList, actualObtenerTodosLosRolesResult);
     }
 }

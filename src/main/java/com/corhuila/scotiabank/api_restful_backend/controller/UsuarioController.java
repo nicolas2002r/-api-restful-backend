@@ -1,12 +1,15 @@
 package com.corhuila.scotiabank.api_restful_backend.controller;
 
 import com.corhuila.scotiabank.api_restful_backend.entity.Usuario;
+import com.corhuila.scotiabank.api_restful_backend.entity.dto.ProgramaAcademicoDTO;
 import com.corhuila.scotiabank.api_restful_backend.entity.dto.UsuarioDTO;
 import com.corhuila.scotiabank.api_restful_backend.service.UsuarioService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.stream.Collectors;
 
 @RestController
 @RequiredArgsConstructor
@@ -26,8 +29,10 @@ public class UsuarioController {
 
         Usuario usuarioCreado = usuarioService.crearUsuario(
                 usuario,
-                usuarioDTO.getRolNombre(),
-                usuarioDTO.getProgramasAcademicos()
+                usuarioDTO.getRol().getNombre(),
+                usuarioDTO.getProgramasAcademicos().stream()
+                        .map(ProgramaAcademicoDTO::getNombre)  // Extraer los nombres de los programas
+                        .collect(Collectors.toList())  // Convertir a una lista de String
         );
 
         return new ResponseEntity<>(usuarioCreado, HttpStatus.CREATED);
