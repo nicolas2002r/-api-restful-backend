@@ -7,6 +7,7 @@ import com.corhuila.scotiabank.api_restful_backend.repository.ProgramaAcademicoR
 import com.corhuila.scotiabank.api_restful_backend.repository.RolRepository;
 import com.corhuila.scotiabank.api_restful_backend.repository.UsuarioRepository;
 import com.corhuila.scotiabank.api_restful_backend.service.UsuarioService;
+import com.corhuila.scotiabank.api_restful_backend.entity.dto.UsuarioResponseDTO;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -48,4 +49,41 @@ public class UsuarioServiceImpl implements UsuarioService {
         // Guardar el usuario
         return usuarioRepository.save(usuario);
     }
+    @Override
+    public List<Usuario> obtenerTodosLosUsuarios() {
+        return usuarioRepository.findAll(); // Método que obtiene todos los usuarios
+    }
+
+    @Override
+    public Usuario actualizarUsuario(Long id, UsuarioResponseDTO usuarioResponseDTO) {
+        Usuario usuarioExistente = usuarioRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Usuario no encontrado con ID: " + id));
+
+        usuarioExistente.setNombre(usuarioResponseDTO.getNombre());
+        usuarioExistente.setApellido(usuarioResponseDTO.getApellido());
+        usuarioExistente.setDni(usuarioResponseDTO.getDni());
+        usuarioExistente.setCorreo(usuarioResponseDTO.getCorreo());
+
+        Rol rol = rolRepository.findById(usuarioResponseDTO.getRol().getId())
+                .orElseThrow(() -> new RuntimeException("Rol no encontrado"));
+        usuarioExistente.setRol(rol);
+
+        Set<ProgramaAcademico> programas = usuarioResponseDTO.getProgramasAcademicos().stream()
+                .map(programaDTO -> programaAcademicoRepository.findById(programaDTO.getId())
+                        .orElseThrow(() -> new RuntimeException("Programa académico no encontrado")))
+                .collect(Collectors.toSet());
+        usuarioExistente.setProgramasAcademicos(programas);
+
+        return usuarioRepository.save(usuarioExistente);
+    }
+
+    @Override
+    public void eliminarUsuario(Long id) {
+        Usuario usuario = usuarioRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Usuario no encontrado con ID: " + id));
+        usuarioRepository.delete(usuario);
+    }
+
+
+
 }
