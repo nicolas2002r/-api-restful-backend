@@ -1,10 +1,10 @@
--.spring:
+spring:
   application:
     name: api-restful-backend
   datasource:
-    url: jdbc:postgresql://localhost:5432/mycorhuila
-    username: postgres
-    password: admin123
+    url: jdbc:postgresql://bzcq6as90etbzc7rniia-postgresql.services.clever-cloud.com:50013/bzcq6as90etbzc7rniia
+    username: ucjabh8f6f25n3vvii05
+    password: mmEuTTuKPF7uaeFBdAtjHok8zcLNLd
     driver-class-name: org.postgresql.Driver
 
   jpa:
@@ -16,5 +16,3 @@
         show_sql: true
         format_sql: true
         use_sql_comments: true
-server:
-  port: 8080
