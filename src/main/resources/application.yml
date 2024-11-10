@@ -6,8 +6,14 @@ spring:
     username: ${DB_USERNAME}
     password: ${DB_PASSWORD}
     driver-class-name: org.postgresql.Driver
+    hikari:
+      maximum-pool-size: 5           # Ajusta según el límite de conexiones de Clever Cloud
+      minimum-idle: 2
+      idle-timeout: 30000            # 30 segundos para cerrar conexiones inactivas
+      max-lifetime: 1800000          # 30 minutos para cerrar conexiones inactivas
 
   jpa:
+    open-in-view: false               # Deshabilita open-in-view para liberar conexiones más rápido
     properties:
       hibernate:
         dialect: org.hibernate.dialect.PostgreSQLDialect
