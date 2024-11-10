@@ -3,8 +3,8 @@ spring:
     name: api-restful-backend
   datasource:
     url: jdbc:postgresql://bzcq6as90etbzc7rniia-postgresql.services.clever-cloud.com:50013/bzcq6as90etbzc7rniia
-    username: ucjabh8f6f25n3vvii05
-    password: mmEuTTuKPF7uaeFBdAtjHok8zcLNLd
+    username: ${DB_USERNAME}
+    password: ${DB_PASSWORD}
     driver-class-name: org.postgresql.Driver
 
   jpa:
