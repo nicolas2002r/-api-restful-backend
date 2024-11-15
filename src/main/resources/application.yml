@@ -2,7 +2,7 @@ spring:
   application:
     name: api-restful-backend
   datasource:
-    url: jdbc:postgresql://bzcq6as90etbzc7rniia-postgresql.services.clever-cloud.com:50013/bzcq6as90etbzc7rniia
+    url: jdbc:postgresql://3.129.206.8:5432/postgres
     username: ${DB_USERNAME}
     password: ${DB_PASSWORD}
     driver-class-name: org.postgresql.Driver
