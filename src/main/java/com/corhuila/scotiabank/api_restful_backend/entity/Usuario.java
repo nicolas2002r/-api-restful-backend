@@ -38,7 +38,7 @@ public class Usuario {
     @JoinColumn(name = "rol_id", nullable = false)
     private Rol rol;
 
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(
             name = "programa_academico_usuario",
             joinColumns = @JoinColumn(name = "usuario_id"),
@@ -46,6 +46,6 @@ public class Usuario {
     )
     private Set<ProgramaAcademico> programasAcademicos = new HashSet<>();
 
-    @OneToMany(mappedBy = "usuario")
+    @OneToMany(mappedBy = "usuario", fetch = FetchType.EAGER)
     private List<Actividad> actividades;
 }
